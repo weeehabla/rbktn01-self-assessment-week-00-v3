@@ -13,36 +13,36 @@
 //
 // EXAMPLE:
 //
-// var familyTree = {
-//   'firstName': 'Beth',
-//   'lastName': 'Johnson',
-//   'location': 'San Francisco',
-//   'children': [
-//     {
-//       'firstName': 'Beth Jr.',
-//       'lastName': 'Johnson',
-//       'location': 'Berkeley',
-//       'children': [
-//         {
-//           'firstName': 'Smitty',
-//           'lastName': 'Won',
-//           'location': 'Beijing',
-//           'children': []
-//         }
-//       ]
-//     },
-//     {
-//       'firstName': 'Joshie',
-//       'lastName': 'Wyattson',
-//       'location': 'Berkeley',
-//       'children': []
-//     }
-//   ]
-// };
+var familyTree = {
+  'firstName': 'Beth',
+  'lastName': 'Johnson',
+  'location': 'San Francisco',
+  'children': [
+    {
+      'firstName': 'Beth Jr.',
+      'lastName': 'Johnson',
+      'location': 'Berkeley',
+      'children': [
+        {
+          'firstName': 'Smitty',
+          'lastName': 'Won',
+          'location': 'Beijing',
+          'children': []
+        }
+      ]
+    },
+    {
+      'firstName': 'Joshie',
+      'lastName': 'Wyattson',
+      'location': 'Berkeley',
+      'children': []
+    }
+  ]
+};
 //
-// var livesInBerkeley = function (familyMember) {
-//   return familyMember.location === 'Berkeley';
-// }
+var livesInBerkeley = function (familyMember) {
+   return familyMember.location === 'Berkeley';
+}
 //
 // filterFamilyMembers(familyTree, livesInBerkeley)
 //
@@ -51,6 +51,27 @@
 
 
 var filterFamilyMembers = function (familyTree, truthTest) {
-  // All your code in this function body
+
+	//var array = []; 
+
+	if (truthTest(familyTree) === true ) {
+
+			//array.push(familyTree.firstName +" "+familyTree.lastName )
+		}
+
+	for ( var key in familyTree) {
+
+
+		 if ( key === 'children') {
+
+		 	filterFamilyMembers(familyTree[key][0],truthTest)
+		 }
+
+		
+
+	 }
+
+	 //return array;
+
 };
 
